@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" type="text/css" href="issue.css" media="all" />
+  <head>
+    <title>Whats the Issue?</title>
+  </head>
+  <body>
+    <form action="home_page.html">
+      <input type="submit" value="Back To Home" />
+    </form>
+
+    <h1>Whats the Issue?</h1>
+    <p>Choose an Issue</p>
+
+
+    <div class="btn-group">
+      <button id='hairloss'>Hair Loss</button>
+      <button id='dandruff'>Dandruff</button>
+      <button id='lice'>Lice</button>
+    </div>
+
+    <script type="text/javascript">
+    document.getElementById("hairloss").onclick = function () {
+        location.href = "hairloss.html";
+    };
+  </script>
+
+  </body>
+</html>
