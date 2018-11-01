@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" type="text/css" href="pick_style.css" media="all" />
   <head>
     <title>Pick a Style!</title>
   </head>
@@ -8,12 +9,40 @@
       <input type="submit" value="Back To Home" />
     </form>
     <h1>Pick a style!</h1>
-    <p>Choose somethin</p>
+    <p>Tell us about you...</p>
+    <p>
+      and wel'll recommend haristyles, products and more!
+    </p>
+    <form action="recommend.html">
+      <fieldset>
+        Age: <input type='number' />
+        <p>
+        </p>
+        Head Size:
+        <p>
+        </p>
+        <input type="radio" name="size" value="Big"> Big<br>
+        <input type="radio" name="size" value="Med"> Medium<br>
+        <input type="radio" name="size" value="Small"> Small<br>
 
-    <form action="">
-      <input type="submit" value="Hair Troubles" />
+        <p>
+          Current Hair Length:
+        </p>
+        <input type="radio" name="length" value="Big"> Long<br>
+        <input type="radio" name="length" value="Med"> Medium<br>
+        <input type="radio" name="length" value="Small"> Short<br>
+
+        <p>
+          Hair Texture:
+        </p>
+        <input type="radio" name="texture" value="Big"> Wavy<br>
+        <input type="radio" name="texture" value="Med"> Thick<br>
+        <input type="radio" name="texture" value="Small"> Thin<br>
+        <input type="radio" name="texture" value="Small"> Im Not sure<br>
+
+        <input type="submit" value="Get Your Recommendations!" />
+      </fieldset>
     </form>
-
 
   </body>
 </html>
