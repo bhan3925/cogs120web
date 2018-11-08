@@ -29,4 +29,21 @@
       </form>
     </fieldset>
   </body>
+
+
+  <script>
+  function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+  }
+  var first = getUrlVars()["size"];
+  var second = getUrlVars()["length"];
+
+  alert(first);
+  alert(second);
+
+  </script>
 </html>
