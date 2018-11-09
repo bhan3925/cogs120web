@@ -48,7 +48,8 @@
         <p>
           <h5>{{description4}}</h5>
         </p>
-        <form action="products.html?{{name}}", method='post'>
+        <form action="products.html">
+          <input type='hidden' name='style' value='{{name}}' />
           <input type="submit" value="Details" />
         </form>
       </fieldset>

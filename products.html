@@ -22,7 +22,7 @@
           <p>
             <h5>{{description}}</h5>
           </p>
-          <form action="products.html?{{name}}">
+          <form action="{{link}}">
             <input type="submit" value="Details" />
           </form>
         </fieldset>
@@ -49,19 +49,12 @@
     });
     return vars;
     }
-    var first = getUrlVars()["size"];
-    var length = getUrlVars()["length"];
+    var style = getUrlVars()["style"];
+    console.log(style);
 
     //hair style data
     var complexData = [
-    {'name': 'Cropped Fringe', 'image': 'images/cropped_fringe.jpg', 'index': 2, 'description1': '-Style can change with shortness of sides (ex. Skin fade)', 'description2':'-Skin fade or #½ for sides', 'description3':'-Slight trim on top', 'description4':'-Ask for volume', 'length':'Long'},
-    {'name': 'Buzz Cut', 'image': 'images/lorempixel.technics.1.jpeg', 'index': 3, 'description': 'hello'},
-    {'name': 'Textured Cut', 'image': 'images/lorempixel.abstract.1.jpeg', 'index': 4, 'description': 'hello'},
-    {'name': 'Visualization', 'image': 'images/lorempixel.abstract.8.jpeg', 'index': 5, 'description': 'hello'},
-    {'name': 'Social design', 'image': 'images/lorempixel.people.2.jpeg', 'index': 6, 'description': 'hello'},
-    {'name': 'Gestural interaction', 'image': 'images/lorempixel.technics.2.jpeg', 'index': 7, 'description': 'hello'},
-    {'name': 'Design tools', 'image': 'images/lorempixel.city.2.jpeg', 'index': 8, 'description': 'hello'}
-    ]
+    {'name': 'Gatsyby Moving Rubber', 'link': 'https://amazon.com/gatsby', 'index': 1, 'description': 'good for asian hair!', styles:['Cropped+Fringe','undercut'] }]
 
 
     $(document).ready(function() {
@@ -75,9 +68,11 @@
       // now iterate through the complexData list and keep appending:
       for (var i = 0; i < complexData.length; i++) {
         var curData = complexData[i];
-        if(curData['length'] == length){
-          var curHtml = template(curData);
-          parentDiv.append(curHtml);
+        for(var x=0; x<curData['styles'].length;x++){
+          if(curData['styles'][x] == style){
+            var curHtml = template(curData);
+            parentDiv.append(curHtml);
+          }
         }
 
       }
