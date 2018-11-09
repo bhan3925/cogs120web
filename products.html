@@ -4,12 +4,90 @@
     <title>Fade</title>
   </head>
   <body>
-    <form action="fade_style.html">
-      <input type="submit" value="Back" />
-    </form>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
     <h1>Products to Consider<h1>
     <p></p>
 
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="project" id="project{{index}}">
+        <fieldset>
+          <img src="{{image}}" alt="Lorem Pixel image" class="img" height="150" width="150">
+          <p><h4>{{name}}</h4></p>
+          <p>
+            <h5>{{description}}</h5>
+          </p>
+          <form action="products.html?{{name}}">
+            <input type="submit" value="Details" />
+          </form>
+        </fieldset>
+      </div>
+    </script>
+
+    <div id="templatedProjects">
+        <!-- we will inject templated project HTML code into here -->
+    </div>
+
+
 
   </body>
+
+  <script src="handlebars-v4.0.12.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script>
+    //used to get the response from previous page and then populate the handle bars thing
+    function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+    });
+    return vars;
+    }
+    var first = getUrlVars()["size"];
+    var length = getUrlVars()["length"];
+
+    //hair style data
+    var complexData = [
+    {'name': 'Cropped Fringe', 'image': 'images/cropped_fringe.jpg', 'index': 2, 'description1': '-Style can change with shortness of sides (ex. Skin fade)', 'description2':'-Skin fade or #½ for sides', 'description3':'-Slight trim on top', 'description4':'-Ask for volume', 'length':'Long'},
+    {'name': 'Buzz Cut', 'image': 'images/lorempixel.technics.1.jpeg', 'index': 3, 'description': 'hello'},
+    {'name': 'Textured Cut', 'image': 'images/lorempixel.abstract.1.jpeg', 'index': 4, 'description': 'hello'},
+    {'name': 'Visualization', 'image': 'images/lorempixel.abstract.8.jpeg', 'index': 5, 'description': 'hello'},
+    {'name': 'Social design', 'image': 'images/lorempixel.people.2.jpeg', 'index': 6, 'description': 'hello'},
+    {'name': 'Gestural interaction', 'image': 'images/lorempixel.technics.2.jpeg', 'index': 7, 'description': 'hello'},
+    {'name': 'Design tools', 'image': 'images/lorempixel.city.2.jpeg', 'index': 8, 'description': 'hello'}
+    ]
+
+
+    $(document).ready(function() {
+      console.log('hello world');
+
+      // compile the template
+      var source   = $("#entry-template").html();
+      var template = Handlebars.compile(source);
+      var parentDiv = $("#templatedProjects");
+
+      // now iterate through the complexData list and keep appending:
+      for (var i = 0; i < complexData.length; i++) {
+        var curData = complexData[i];
+        if(curData['length'] == length){
+          var curHtml = template(curData);
+          parentDiv.append(curHtml);
+        }
+
+      }
+    });
+
+
+  </script>
+
+
+
+
+
 </html>
