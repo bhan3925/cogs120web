@@ -20,18 +20,34 @@
       <button id='hairloss'>Hair Loss</button>
       <button id='dandruff'>Dandruff</button>
       <button id='lice'>Lice</button>
+      <button id='dry'>Dry Hair</button>
+      <button id='oily'>Oily Hair</button>
+      <button id='dull'>Dull Hair</button>
+      <button id='damaged'>Damaged Hair/Split Ends</button>
     </div>
 
     <!-- script to enable buttons -->
     <script type="text/javascript">
     document.getElementById("hairloss").onclick = function () {
-        location.href = "hairloss.html";
+        location.href = "issue_recommend.html?issue=hairloss";
     };
     document.getElementById("dandruff").onclick = function () {
-        location.href = "dandruff.html";
+        location.href = "issue_recommend.html?issue=dandruff";
     };
     document.getElementById("lice").onclick = function () {
-        location.href = "lice.html";
+        location.href = "issue_recommend.html?issue=lice";
+    };
+    document.getElementById("dry").onclick = function () {
+        location.href = "issue_recommend.html?issue=dry";
+    };
+    document.getElementById("oily").onclick = function () {
+        location.href = "issue_recommend.html?issue=oily";
+    };
+    document.getElementById("dull").onclick = function () {
+        location.href = "issue_recommend.html?issue=dull";
+    };
+    document.getElementById("damaged").onclick = function () {
+        location.href = "issue_recommend.html?issue=damaged";
     };
 
   </script>
