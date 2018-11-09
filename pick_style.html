@@ -18,30 +18,30 @@
     </p>
     <form action="recommend.html" method='get'>
       <fieldset>
-        Age: <input type='number' name='age'/>
+        Age: <input type='number' name='age'required/>
         <p>
         </p>
         Head Size:
         <p>
         </p>
-        <input type="radio" name="size" value="Big"> Big<br>
-        <input type="radio" name="size" value="Med"> Medium<br>
-        <input type="radio" name="size" value="Small"> Small<br>
+        <input type="radio" name="size" value="Big" required> Big<br>
+        <input type="radio" name="size" value="Med" required> Medium<br>
+        <input type="radio" name="size" value="Small" required> Small<br>
 
         <p>
           Current Hair Length:
         </p>
-        <input type="radio" name="length" value="Long"> Long<br>
-        <input type="radio" name="length" value="Medium"> Medium<br>
-        <input type="radio" name="length" value="Short"> Short<br>
+        <input type="radio" name="length" value="Long" required> Long<br>
+        <input type="radio" name="length" value="Medium" required> Medium<br>
+        <input type="radio" name="length" value="Short" required> Short<br>
 
         <p>
           Hair Texture:
         </p>
-        <input type="radio" name="texture" value="Big"> Wavy<br>
-        <input type="radio" name="texture" value="Med"> Thick<br>
-        <input type="radio" name="texture" value="Small"> Thin<br>
-        <input type="radio" name="texture" value="Small"> Im Not sure<br>
+        <input type="radio" name="texture" value="Big" required> Wavy<br>
+        <input type="radio" name="texture" value="Med" required> Thick<br>
+        <input type="radio" name="texture" value="Small" required> Thin<br>
+        <input type="radio" name="texture" value="Unknown" required> Im Not sure<br>
 
         <input type="submit" value="Get Your Recommendations!" />
       </fieldset>
