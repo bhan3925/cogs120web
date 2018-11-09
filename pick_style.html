@@ -5,9 +5,13 @@
     <title>Pick a Style!</title>
   </head>
   <body>
-      <form action="home_page.html">
-        <input type="submit" value="Back To Home" />
-      </form>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
       <form action="help.html">
         <input type="submit" value="Help!" />
       </form>
