@@ -60,12 +60,13 @@
     $("#issue_name1").text(issue_translate[issue]);
     //hair style data
     var complexData = [
-      {'name': 'Tree Oil Lice Shampoo', 'link': 'https://www.amazon.com/Pure-Tree-Shampoo-Anti-Dandruff-Anti-Bacterial/dp/B0099EHM86/ref=sr_1_3_a_it?ie=UTF8&qid=1541727742&sr=8-3&keywords=lice%2Bhair%2Bproduct%2Bmen&th=1', 'index': 1, 'description': 'Anti-lice shampoo for preventing lice'},
-      {'name': 'Nizoral A-D Anti-Dandruff Shampoo', 'link': 'https://www.amazon.com/Nizoral-D-Anti-Dandruff-Shampoo-Fl/dp/B0000Y3CRY', 'index': 2, 'description': 'Shampoo that kills dandruff'},
-      {'name': 'Thumos Hair Loss Shampoo', 'link': 'https://www.amazon.com/Male-Hair-Loss-Shampoo-Men/dp/B074GR71JL', 'index': 3, 'description': 'Shampoo that prevents hair loss and restores volume'},
-      {'name': 'Redken Moisturizing Shampoo', 'link': 'https://www.amazon.com/dp/B0014DYEAE/?tag=gentsgaze-20', 'index': 4, 'description': 'Great for moisturizing follicles and scalp!'},
-      {'name': 'Kerastase Anti Oiliness Shampoo', 'link': 'https://www.amazon.com/Homme-Kerastase-Capital-Anti-Oiliness-Shampoo/dp/B01M1JV4PR/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=manlinesskit-20&linkId=21cd0cb339b46d122a16983700a36cfc', 'index': 4, 'description': 'Great for reducing oiliness'},
-      {'name': 'Silk18 Treatment For Damaged Hair', 'link': 'https://www.amazon.com/Natural-Conditioner-Sulfate-Treatment-Silk/dp/B00L1KFQKC/ref=sr_1_4_a_it?ie=UTF8&qid=1541728076&sr=8-4&keywords=split%2Bends%2Bhair%2Btreatment&th=1', 'index': 5, 'description': 'Conditioner that treats dry, damaged hair!'}
+      {'name': 'Tree Oil Lice Shampoo','issue':'Lice', 'link': 'https://www.amazon.com/Pure-Tree-Shampoo-Anti-Dandruff-Anti-Bacterial/dp/B0099EHM86/ref=sr_1_3_a_it?ie=UTF8&qid=1541727742&sr=8-3&keywords=lice%2Bhair%2Bproduct%2Bmen&th=1', 'index': 1, 'description': 'Anti-lice shampoo for preventing lice'},
+      {'name': 'Nizoral A-D Anti-Dandruff Shampoo', 'issue':'Dandruff','link': 'https://www.amazon.com/Nizoral-D-Anti-Dandruff-Shampoo-Fl/dp/B0000Y3CRY', 'index': 2, 'description': 'Shampoo that kills dandruff'},
+      {'name': 'Thumos Hair Loss Shampoo', 'issue':'Hairloss','link': 'https://www.amazon.com/Male-Hair-Loss-Shampoo-Men/dp/B074GR71JL', 'index': 3, 'description': 'Shampoo that prevents hair loss and restores volume'},
+      {'name': 'Redken Moisturizing Shampoo', 'issue':'Dry Hair','link': 'https://www.amazon.com/dp/B0014DYEAE/?tag=gentsgaze-20', 'index': 4, 'description': 'Great for moisturizing follicles and scalp!'},
+      {'name': 'Kerastase Anti Oiliness Shampoo', 'issue':'Oily Hair','link': 'https://www.amazon.com/Homme-Kerastase-Capital-Anti-Oiliness-Shampoo/dp/B01M1JV4PR/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=manlinesskit-20&linkId=21cd0cb339b46d122a16983700a36cfc', 'index': 4, 'description': 'Great for reducing oiliness'},
+      {'name': 'Silk18 Treatment For Damaged Hair', 'issue':'Dull Hair','link': 'https://www.amazon.com/Natural-Conditioner-Sulfate-Treatment-Silk/dp/B00L1KFQKC/ref=sr_1_4_a_it?ie=UTF8&qid=1541728076&sr=8-4&keywords=split%2Bends%2Bhair%2Btreatment&th=1', 'index': 5, 'description': 'Conditioner that treats dry, damaged hair!'},
+      {'name': 'Silk18 Treatment For Damaged Hair', 'issue':'Damaged Hair/Split Ends','link': 'https://www.amazon.com/Natural-Conditioner-Sulfate-Treatment-Silk/dp/B00L1KFQKC/ref=sr_1_4_a_it?ie=UTF8&qid=1541728076&sr=8-4&keywords=split%2Bends%2Bhair%2Btreatment&th=1', 'index': 5, 'description': 'Conditioner that treats dry, damaged hair!'}
 
     ]
 
@@ -86,19 +87,11 @@
       // now iterate through the complexData list and keep appending:
       for (var i = 0; i < complexData.length; i++) {
         var curData = complexData[i];
-        var curHtml = template(curData);
-        parentDiv.append(curHtml);
+        if(issue_translate[issue] == curData['issue']){
+            var curHtml = template(curData);
+            parentDiv.append(curHtml);
         }
-
-      var source2 = $("#description_template").html();
-      var template2 = Handlebars.compile(source);
-      var parentDiv = $("templatedDesc");
-      for(var i = 0; i < issueData.length;i++){
-        var curData = issueData[i];
-
-        parentDiv.append(curData);
       }
-      parentDiv.append(curHtml);
     });
 
 
