@@ -38,7 +38,6 @@
 		<div class="project" id="project{{index}}">
       <fieldset>
         <img src="{{image}}" alt="image soon to come" class="img" height="150" width="150">
-        <button type='button' class='hello' id='{{index}}'> Add To Favorites </button>
 				<p><h3>{{name}}</h3></p>
 
           <b>
@@ -125,7 +124,7 @@
       $(".hello").click(function(event) {
         var id = event.target.id;
         $("#"+id).html('Save');
-        
+
 
 
       });
