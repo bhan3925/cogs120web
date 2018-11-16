@@ -130,7 +130,7 @@
         // now iterate through the complexData list and keep appending:
         for (var i = 0; i < complexData.length; i++) {
           var curData = complexData[i];
-          if(curData['name'].replace(' ', '+').replace(' ', '+') == curStyle){
+          if(curData['name'].replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+') == curStyle){
             var curHtml = template(curData);
             parentDiv.append(curHtml);
           }
