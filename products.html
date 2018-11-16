@@ -13,6 +13,30 @@
         window.history.back();
     }
     </script>
+
+    <button onclick="complete()" style="float: right;">See Your Completed Hairstyle Regime</button>
+
+    <script>
+    function getUrlVars() {
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+      });
+      return vars;
+    }
+
+
+    function complete() {
+      if(localStorage.getItem("favorites")===null){
+        window.alert("Choose some Favorites!");
+      }
+      else{
+        var curStyle = getUrlVars()["style"];
+        localStorage.setItem("currentStyle", curStyle);
+        location.href = "favorite_screen.html";
+      }
+    }
+    </script>
     <h1>Products to Consider<h1>
     <p>Choose Some Products For Your Favorites List!</p>
 
