@@ -41,7 +41,7 @@
     <p>Choose Some Products For Your Favorites List!</p>
 
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'templatedProjects')">Wax</button>
+      <button class="tablinks" id='wax' onclick="openCity(event, 'templatedProjects')">Wax</button>
       <button class="tablinks" onclick="openCity(event, 'sprays')">HairSprays</button>
     </div>
 
@@ -132,6 +132,8 @@
     //used to populate the page with products
     $(document).ready(function() {
       console.log('hello world');
+      document.getElementById("wax").click();
+
       localStorage.clear();
 
       // compile the template
