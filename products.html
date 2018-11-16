@@ -22,6 +22,8 @@
           <p>
             <h5>{{description}}</h5>
           </p>
+          <button type='button' class='hello' id='{{index}}'>Add To Favorites</button>
+
           <form action="{{link}}">
             <input type="submit" value="Details" />
           </form>
@@ -54,7 +56,7 @@
 
     //hair style data
     var complexData = [
-    {'name': 'Gatsyby Moving Rubber', 'link': 'https://amazon.com/gatsby', 'index': 1, 'description': 'good for asian hair!', styles:['Cropped+Fringe','undercut'] },
+    {'name': 'Gatsyby Moving Rubber', 'link': 'https://amazon.com/gatsby', 'index': 0, 'description': 'good for asian hair!', styles:['Cropped+Fringe','undercut'] },
     {'name': 'Suavecito Pomade Firm Hold', 'link': 'https://www.amazon.com/Suavecito-Pomade-Firme-Strong-Hold/dp/B00BFJGJLE/ref=sr_1_4_a_it?ie=UTF8&qid=1541727424&sr=8-4&keywords=hair%2Bstyling%2Bproducts%2Bfor%2Bmen&th=1', 'index': 1, 'description': 'Good for long-time hold!',styles:['Cropped+Fringe','undercut', 'Buzz+Cut', 'Long+Hair+Undercut','Textured+Cut','Loose+Pompadour','Spiky+Modern+Undercut','Classic+Pompadour','Medium+Length+Natural+Flow','Side+Part+Combover','Messy+Medium+Length']},
     {'name': 'Gatsby Moving Rubber Spiky Edge Wax', 'link': 'https://www.amazon.com/Gatsby-Moving-Rubber-Spiky-2-8oz/dp/B005M2C6PS/ref=pd_lpo_vtph_121_bs_t_1?_encoding=UTF8&psc=1&refRID=MAKC9KS7KK53Q0A19EA5', 'index': 2, 'description': 'Great for styling and holding volume for short hair!',styles:['Cropped+Fringe','undercut', 'Long+Hair+Undercut','Buzz+Cut','Textured+Cut','Loose+Pompadour','Spiky+Modern+Undercut','Classic+Pompadour','Medium+Length+Natural+Flow','Side+Part+Combover','Messy+Medium+Length']},
     {'name': 'Hanz De Fuko Claymation', 'link': 'https://www.amazon.com/Hanz-de-Fuko-Claymation/dp/7178679743', 'index': 3, 'description': 'Most popular right now, supreme hold for short to medium length!',styles:['Cropped+Fringe','undercut', 'Buzz+Cut','Textured+Cut','Loose+Pompadour','Spiky+Modern+Undercut','Classic+Pompadour','Medium+Length+Natural+Flow','Side+Part+Combover','Messy+Medium+Length']},
@@ -67,6 +69,7 @@
 
     $(document).ready(function() {
       console.log('hello world');
+      localStorage.clear();
 
       // compile the template
       var source   = $("#entry-template").html();
@@ -84,6 +87,37 @@
         }
 
       }
+      $(".hello").click(function(event) {
+        var id = event.target.id;
+        console.log($("#"+id).text());
+
+        if($("#"+id).text() =="Add To Favorites") {
+          $("#"+id).html('Unfavorite');
+          if(localStorage.getItem("favorites")===null) {
+            var faves = [id];
+            localStorage.setItem("favorites", JSON.stringify(faves));
+          }
+          else {
+            var storedFavorites = JSON.parse(localStorage.getItem("favorites"));
+            console.log(storedFavorites);
+
+            storedFavorites.push(id);
+            localStorage.setItem("favorites", JSON.stringify(storedFavorites));
+          }
+        }
+        else {
+            $("#"+id).html('Add To Favorites');
+
+            var storedFavorites = JSON.parse(localStorage.getItem("favorites"));
+            console.log(storedFavorites);
+            storedFavorites.splice( storedFavorites.indexOf(id), 1 );
+            localStorage.setItem("favorites", JSON.stringify(storedFavorites));
+
+        }
+
+
+      });
+
     });
 
 
