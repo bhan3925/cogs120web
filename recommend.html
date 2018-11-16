@@ -3,6 +3,7 @@
   <head>
     <title>Recommendations</title>
   </head>
+  <link rel="stylesheet" type="text/css" href="recommend.css">
 
   <body>
     <form action="pick_style.html">
@@ -89,7 +90,7 @@
     {'name': 'Loose Pompadour', 'image': 'images/lorempixel.city.1.jpeg', 'index': 5, 'description1': '-Fade with #1/2/skin fade', 'description2':'-Comb the top to the side, towards the back', 'description3':'-Use gel to create volume', 'length':'Medium'},
     {'name': 'Textured Cut', 'image': 'images/lorempixel.city.1.jpeg', 'index': 6, 'description1': '-Fade with #1/2/skin fade', 'description2':'-Medium trim on top', 'description3':'-Thin out on top', 'description4':'-Use gel to create volume', 'length':'Medium'},
     {'name': 'Spiky Modern Undercut', 'image': 'images/lorempixel.city.1.jpeg', 'index': 7, 'description1': '-Fade with #1/2/skin fade', 'description2':'-Medium trim on top', 'description3':'-Use water spray to wet the top a little', 'description4':'-Use gel to create messiness/volume', 'length':'Medium'},
-    {'name': 'Classic Pompadour', 'image': 'images/lorempixel.city.1.jpeg', 'index': 7, 'description1': '-Fade with #1/2/skin fade', 'description2':'-Very little trim on top', 'description3':'-Comb to the side', 'description4':'-Use gel to hold', 'length':'Medium'},
+    {'name': 'Classic Pompadour', 'image': 'images/lorempixel.city.1.jpeg', 'index': 17, 'description1': '-Fade with #1/2/skin fade', 'description2':'-Very little trim on top', 'description3':'-Comb to the side', 'description4':'-Use gel to hold', 'length':'Medium'},
     {'name': 'Medium Length Natural Flow', 'image': 'images/lorempixel.city.1.jpeg', 'index': 8, 'description1': '-Fade with #3', 'description2':'-Thin out a little on top', 'description3':'-Comb to the side, towards the back', 'description4':'-Use gel to hold', 'length':'Medium'},
     {'name': 'Side Part Combover', 'image': 'images/lorempixel.city.1.jpeg', 'index': 9, 'description1': '-Medium Sides', 'description2':'-Thin out a little on top', 'description3':'-Comb to the side', 'description4':'-Use gel to hold', 'length':'Medium'},
     {'name': 'Messy Medium Length', 'image': 'images/lorempixel.city.1.jpeg', 'index': 10, 'description1': '-Medium Sides', 'description2':'-Thin out a little on top', 'description3':'-Use the water spray to wet the top a little', 'description4':'-Use wax to create messiness', 'length':'Medium'},
@@ -105,7 +106,6 @@
 
     $(document).ready(function() {
       console.log('hello world');
-
       // compile the template
       var source   = $("#entry-template").html();
       var template = Handlebars.compile(source);
@@ -120,8 +120,22 @@
         }
 
       }
+      $(".hello").click(function(event) {
+        var id = event.target.id;
+        $("#"+id).html('Save');
+
+
+
+      });
     });
 
+
+
+    $("#fave").click(function() {
+    var newName = prompt("What's your new name?");
+
+
+  });
 
   </script>
 </html>

@@ -11,19 +11,36 @@
             <tr>
               <td> Username : </td>
               <td>
-                <input type="text" name="user">
+                <input id='user' type="text" name="user">
               </td>
 
             </tr>
               <tr>
                 <td> Password : </td>
                 <td>
-                  <input type="text" name="pass">
+                  <input id='pass' type="password" name="pass">
               </tr>
           </table>
-          <input type="submit" value="Login!" />
+          <button id='hello' type='button' id='submit'>Login</button>
       </form>
     </center>
+
+
   </body>
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+document.getElementById("hello").onclick = function () {
+    var user = document.getElementById('user').value;
+    var pass = document.getElementById('pass').value
+    if(user == "user"){
+      if(pass == "1234"){
+        location.href = "new_home.html";
+
+      }
+    }
+};
+
+</script>
 
 </html>
