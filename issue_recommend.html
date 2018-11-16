@@ -8,6 +8,13 @@
       <input type="submit" value="Back To Issues" />
     </form>
     <h1 id='issue_name1'>Dandruff</h1>
+
+    <div id="templatedDesc">
+        <!-- we will inject templated project HTML code into here -->
+    </div>
+    <script id="desciption_template" type="text/x-handlebars-template">
+        <h2>{{description}}</h2>
+    </script>
     <h4>Below are some Products that could help</h4>
 
 
@@ -62,6 +69,11 @@
 
     ]
 
+    var issueData = [
+      {'name': 'Lice', 'description':'eweww'}
+    ]
+
+
 
     $(document).ready(function() {
       console.log('hello world');
@@ -77,6 +89,16 @@
         var curHtml = template(curData);
         parentDiv.append(curHtml);
         }
+
+      var source2 = $("#description_template").html();
+      var template2 = Handlebars.compile(source);
+      var parentDiv = $("templatedDesc");
+      for(var i = 0; i < issueData.length;i++){
+        var curData = issueData[i];
+
+        parentDiv.append(curData);
+      }
+      parentDiv.append(curHtml);
     });
 
 

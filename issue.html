@@ -4,30 +4,43 @@
   <head>
     <title>Whats the Issue?</title>
   </head>
-  <body>
-    <button onclick="goBack()">Go Back</button>
+  <style>
+  .center {
 
-    <script>
-    function goBack() {
-        window.history.back();
-    }
-    </script>
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+  }
+  </style>
+  <body>
+    <a href='new_home.html'>
+      <img src="images/logo.png" alt="logo" style="width:100px;height:100px;padding:10px" class='center'>
+    </a>
+
+    <form action="new_home.html">
+      <input type="submit" value="Back" />
+    </form>
     <form action="help.html">
       <input type="submit" value="Help!" />
     </form>
+<center>
+    <h1 >
+      Whats the Issue?</h1>
+    <p>
 
-    <h1>Whats the Issue?</h1>
-    <p>Choose an Issue</p>
+      Choose an Issue</p>
+    </Center>
 
 
-    <div class="btn-group">
-      <button id='hairloss'>Hair Loss</button>
-      <button id='dandruff'>Dandruff</button>
-      <button id='lice'>Lice</button>
-      <button id='dry'>Dry Hair</button>
-      <button id='oily'>Oily Hair</button>
-      <button id='dull'>Dull Hair</button>
-      <button id='damaged'>Damaged Hair/Split Ends</button>
+    <div class="btn-group" class='center'>
+      <button class='center' id='hairloss'>Hair Loss</button>
+      <button class='center'id='dandruff'>Dandruff</button>
+      <button class='center'id='lice'>Lice</button>
+      <button class='center'id='dry'>Dry Hair</button>
+      <button class='center'id='oily'>Oily Hair</button>
+      <button class='center'id='dull'>Dull Hair</button>
+      <button class='center'id='damaged'>Damaged Hair/Split Ends</button>
     </div>
 
     <!-- script to enable buttons -->
