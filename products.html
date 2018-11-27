@@ -175,6 +175,7 @@
 
         if($("#"+id).text() =="Add To Favorites") {
           $("#"+id).html('Unfavorite');
+          window.alert("Added to Favorites!");
           if(localStorage.getItem("favorites")===null) {
             var faves = [id];
             localStorage.setItem("favorites", JSON.stringify(faves));
